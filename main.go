@@ -30,7 +30,7 @@ func main() {
 
 	// Create a network for containers to join.
 	// NewNetwork accepts Variadic optional arguments that libnetwork and Drivers can use.
-	network, err := controller.NewNetwork(networkType, "network1", libnetwork.NetworkOptionDriverOpts(nil))
+	network, err := controller.NewNetwork(networkType, "network1", "")
 	if err != nil {
 		log.Fatalf("controller.NewNetwork: %s", err)
 	}
@@ -48,7 +48,7 @@ func main() {
 	// NewSandbox accepts Variadic optional arguments which libnetwork can use.
 	sbx, err := controller.NewSandbox("container1",
 		libnetwork.OptionHostname("test"),
-		libnetwork.OptionDomainname("docker.io"))
+		libnetwork.OptionDomainname(""))
 	if err != nil {
 		log.Fatalf("controller.NewSandbox: %s", err)
 	}
